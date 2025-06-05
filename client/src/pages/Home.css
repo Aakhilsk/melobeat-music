@@ -1,0 +1,137 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Decreased gap */
+  height: calc(100vh - 80px); /* Adjusted height for header */
+  padding: 1rem 1rem 120px 1rem; /* Added bottom padding for player */
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent container scrolling */
+}
+
+.home-content {
+  display: flex;
+  gap: 1rem; /* Decreased gap */
+  flex: 1;
+  overflow: hidden; /* Prevent this container from causing scroll */
+}
+
+.songs-section {
+  flex: 3;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+  overflow-y: auto; /* Enable vertical scrolling for songs list */
+  display: flex;
+  flex-direction: column;
+}
+
+.songs-section:hover {
+  transform: translateY(-5px);
+}
+
+.playlists-section {
+  flex: 2;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+  overflow-y: auto; /* Enable vertical scrolling for playlists */
+  display: flex;
+  flex-direction: column;
+}
+
+.playlists-section:hover {
+  transform: translateY(-5px);
+}
+
+.section-header {
+  margin-bottom: 1rem; /* Decreased margin */
+  position: relative;
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, #FF3CAC, #784BA0, #2B86C5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-decoration {
+  height: 3px;
+  width: 50px;
+  background: linear-gradient(90deg, #FF3CAC, #784BA0, #2B86C5);
+  border-radius: 3px;
+}
+
+/* The player is now handled by a separate component with fixed positioning */
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .home-container {
+    height: calc(100vh - 80px); /* Adjusted height for header */
+    padding: 1rem 1rem 120px 1rem; /* Added bottom padding for player */
+  }
+
+  .home-content {
+    flex-direction: column;
+    overflow: hidden; /* Prevent scrolling on smaller screens */
+  }
+
+  .songs-section,
+  .playlists-section {
+    width: 100%;
+    overflow-y: auto; /* Enable scrolling on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    gap: 0.5rem; /* Further decrease gap */
+    padding: 0.5rem 0.5rem 120px 0.5rem; /* Further decrease padding, maintain bottom padding */
+    height: calc(100vh - 70px); /* Adjusted height for header */
+  }
+
+  .section-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .songs-section,
+  .playlists-section {
+    padding: 0.5rem;
+  }
+}
+
+.song-search-input::placeholder,
+.playlist-name-input::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Lighter white for placeholder */
+}
+
+.song-search-input,
+.playlist-name-input {
+  color: white; /* White text for input */
+  background-color: rgba(255, 255, 255, 0.05); /* Slightly visible background */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+.song-search-input:focus,
+.playlist-name-input:focus {
+  border-color: #784BA0; /* Highlight border on focus */
+  box-shadow: 0 0 5px rgba(120, 75, 160, 0.5); /* Glow effect on focus */
+}
+
+.selected-song-item {
+  background-color: rgba(120, 75, 160, 0.2); /* Subtle background color for selected items */
+  border-color: #784BA0; /* Highlight border */
+  border-width: 2px; /* Make border more prominent */
+} 
